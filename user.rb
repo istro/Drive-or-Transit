@@ -9,7 +9,7 @@ module Transport
       @name = fname + ' ' + lname
       @addresses = []
     end
-#
+
     def add_address(address)
       @addresses << address
     end
