@@ -62,6 +62,6 @@ describe "API Wrapper Module" do
   end
 
   it "compares distance" do
-    shorter_distance(@transit, @driving).should eq :driving
+    shorter_distance(@transit, @driving).should eq :transit
   end
 end

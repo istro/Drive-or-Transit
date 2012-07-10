@@ -4,8 +4,13 @@ require 'json'
 module GoogleAPI
   def shorter_duration(mode_one, mode_two)
     # mode_one.time < mode_two.time ? mode_one.mode.to_sym : mode_two.mode.to_sym
-    [mode_one, mode_two].min{|a,b| a.time<=>b.time }.mode.to_sym
+    [mode_one, mode_two].min {|a,b| a.time<=>b.time }.mode.to_sym
   end
+
+  def shorter_distance(mode_one, mode_two)
+     # mode_one.time < mode_two.time ? mode_one.mode.to_sym : mode_two.mode.to_sym
+     [mode_one, mode_two].min {|a,b| a.distance <=> b.distance }.mode.to_sym
+   end
 
   class MapData
     attr_reader :mode
