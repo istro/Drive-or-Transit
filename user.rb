@@ -1,5 +1,4 @@
-
-
+require 'SQLite3'
 
 module Transport
   class User
