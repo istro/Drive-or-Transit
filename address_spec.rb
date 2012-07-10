@@ -13,7 +13,7 @@ describe Address do
   
   context "#new" do
     it "instantiates object with address" do
-      @address = Address.new(street: "717 California St", city: "Sanfrancisco", state: "CA", zip: 94108, created_at: Time.now, address_type: "Bart", user_id: 1)
+      @address = Address.new(street: "717 California St", city: "San francisco", state: "CA", zip: 94108, created_at: Time.now, address_type: "Bart", user_id: 1)
       @address.state.should eq "CA"
       @address.zip.should eq 94108
     end
