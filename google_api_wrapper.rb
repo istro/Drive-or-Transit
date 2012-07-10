@@ -3,16 +3,14 @@ require 'json'
 
 module GoogleAPI
   def shorter_duration(mode_one, mode_two)
-    # mode_one.time < mode_two.time ? mode_one.mode.to_sym : mode_two.mode.to_sym
-    [mode_one, mode_two].min {|a,b| a.time<=>b.time }.mode.to_sym
+    [mode_one, mode_two].min {|a,b| a.time <=> b.time }.mode.to_sym
   end
 
   def shorter_distance(mode_one, mode_two)
-     # mode_one.time < mode_two.time ? mode_one.mode.to_sym : mode_two.mode.to_sym
-     [mode_one, mode_two].min {|a,b| a.distance <=> b.distance }.mode.to_sym
-   end
+    [mode_one, mode_two].min {|a,b| a.distance <=> b.distance }.mode.to_sym
+  end
 
-  class MapData
+  class TripData
     attr_reader :mode
 
     def initialize(opts = {})
@@ -24,7 +22,7 @@ module GoogleAPI
     end
 
     def response
-      into_json = RestClient.get "http://maps.googleapis.com/maps/api/directions/json", { :params => @opts }
+      into_json = RestClient.get "https://maps.googleapis.com/maps/api/directions/json", { :params => @opts }
       JSON.parse(into_json, :symbolize_names => true)
     end
 
