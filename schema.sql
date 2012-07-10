@@ -1,0 +1,16 @@
+CREATE TABLE users (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+first_name VARCHAR(64) NOT NULL,
+last_name VARCHAR(64) NOT NULL
+)
+
+CREATE TABLE addresses (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+FOREIGN KEY (user_id) REFERENCES 'users' ('id'),
+created_at DATETIME,
+type VARCHAR(10),
+street VARCHAR,
+city VARCHAR(64),
+state VARCHAR(20),
+zip INTEGER
+)
