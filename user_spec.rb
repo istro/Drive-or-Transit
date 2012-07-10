@@ -1,5 +1,4 @@
 require 'rspec'
-# require 'active_record'
 require 'simplecov'
 SimpleCov.start
 require'./user.rb'
