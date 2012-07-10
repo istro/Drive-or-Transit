@@ -5,32 +5,25 @@ require'./user.rb'
 include Transport
 
 describe User do
-  before (:each) do
-    @sherief = User.new("Sherief", "Gharraph")
-  end
+
   context "#new"do
-    it "should be instantiated with first and last name" do
-      @sherief.name.should == "Sherief Gharraph"
-      # triangulating to make sure we're testing the behavior, not just a single expectation:
-      ivan = User.new("Ivan", "Stroganov")
-      ivan.name.should == "Ivan Stroganov"
+    it "instantiates a user object with user name" do
+      @user = User.new(:first_name => "Sherief", :last_name => "Gharraph")
+      @user.first_name.should eq "Sherief"
+      @user.last_name.should eq "Gharraph"
+    end
+
+    it 'raises error if new user is created without name' do
+      lambda {User.new().save}.should raise_exception
+    end
+
+    it "assign an id attribute when saved to db" do
+      @user2 = User.new(:first_name => 'ivan', :last_name => 'smartass')
+      @user2.save
+      @user2.id.should be_an_instance_of Fixnum
     end
   end
-  context "having addresses"
-    it 'should count the number of addresses' do
-      @sherief.count_addresses.should == 0
-    end
 
-    it "should be able to add addresses" do
-      expect {
-        @sherief.add_address("24 Gidah St, Cairo, Egypt")
-      }.should change(@sherief, :count_addresses).by(1)
-    end
-
-    it 'should be able to list addresses' do
-      @sherief.add_address("24 Gidah St, Cairo, Egypt")
-      @sherief.add_address('Hariduse 3, N6o, Tartumaa 61414, Estonia')
-      @sherief.list_addresses.index('Cairo').nil?.should be false
-
-    end
 end
+
+
