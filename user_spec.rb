@@ -7,26 +7,23 @@ include Transport
 describe User do
 
   context "#new"do
-    it "should instantiate a user object with user name" do
+    it "instantiates a user object with user name" do
       @user = User.new(:first_name => "Sherief", :last_name => "Gharraph")
       @user.first_name.should eq "Sherief"
       @user.last_name.should eq "Gharraph"
     end
-  end
 
-  context "#add_address" do
-    it "should be able to add user to the database" do
+    it 'raises error if new user is created without name' do
+      lambda {User.new().save}.should raise_exception
+    end
 
+    it "assign an id attribute when saved to db" do
+      @user2 = User.new(:first_name => 'ivan', :last_name => 'smartass')
+      @user2.save
+      @user2.id.should be_an_instance_of Fixnum
     end
   end
+
 end
 
-describe Address do
-  context "#new" do
-    it "should instantiate object with adress" do
-      @address = Address.new(street: "717 California St", city: "Sanfrancisco", state: "CA", zip: 94108, created_at: Time.now)
-      @address.state.should eq "CA"
-      @address.zip.should eq 94108
-    end
-  end
-end
+

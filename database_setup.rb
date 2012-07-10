@@ -6,11 +6,11 @@ ActiveRecord::Base.establish_connection(
   :database => "bart_drive.sqlite3"
 )
 
-unless ActiveRecord::Schema
+unless File.exists?('bart_drive.sqlite3')
   ActiveRecord::Schema.define do
       create_table :users do |t|
-        t.column :first_name, :string
-        t.column :last_name, :string
+        t.column :first_name, :string, :null => false
+        t.column :last_name, :string, :null => false
       end
 
       create_table :addresses do |t|
@@ -20,7 +20,7 @@ unless ActiveRecord::Schema
         t.column :zip, :integer
         t.column :created_at, :time
         t.column :type, :string
-        t.column :user_id, :integer
+        t.column :user_id, :integer, :null => false
       end
   end
 end
