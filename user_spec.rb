@@ -1,36 +1,33 @@
 require 'rspec'
+# require 'active_record'
 require 'simplecov'
 SimpleCov.start
 require'./user.rb'
 include Transport
 
 describe User do
-  before (:each) do
-    @sherief = User.new("Sherief", "Gharraph")
-  end
+
   context "#new"do
-    it "should be instantiated with first and last name" do
-      @sherief.name.should == "Sherief Gharraph"
-      # triangulating to make sure we're testing the behavior, not just a single expectation:
-      ivan = User.new("Ivan", "Stroganov")
-      ivan.name.should == "Ivan Stroganov"
+    it "should instantiate a user object with user name" do
+      @user = User.new(:first_name => "Sherief", :last_name => "Gharraph")
+      @user.first_name.should eq "Sherief"
+      @user.last_name.should eq "Gharraph"
     end
   end
-  context "having addresses"
-    it 'should count the number of addresses' do
-      @sherief.count_addresses.should == 0
-    end
 
-    it "should be able to add addresses" do
-      expect {
-        @sherief.add_address("24 Gidah St, Cairo, Egypt")
-      }.should change(@sherief, :count_addresses).by(1)
-    end
-
-    it 'should be able to list addresses' do
-      @sherief.add_address("24 Gidah St, Cairo, Egypt")
-      @sherief.add_address('Hariduse 3, N6o, Tartumaa 61414, Estonia')
-      @sherief.list_addresses.index('Cairo').nil?.should be false
+  context "#add_address" do
+    it "should be able to add user to the database" do
 
     end
+  end
+end
+
+describe Address do
+  context "#new" do
+    it "should instantiate object with adress" do
+      @address = Address.new(street: "717 California St", city: "Sanfrancisco", state: "CA", zip: 94108, created_at: Time.now)
+      @address.state.should eq "CA"
+      @address.zip.should eq 94108
+    end
+  end
 end
