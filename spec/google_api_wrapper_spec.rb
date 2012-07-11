@@ -1,19 +1,19 @@
-require './google_api_wrapper'
-require 'rspec'
+require_relative 'spec_helper'
+require_relative '../lib/google_api_wrapper.rb'
 
 include GoogleAPI
-describe "TripData" do
+describe "Trip" do
   # before(:each) do
   #   @map_data = mock(TripData)
   #   @map_data.stub!(:response).and_return(eval(File.read('map_data_mock.txt')))
   # end
 
-  let(:trip_data) { TripData.new(origin: "15 Michael Lane, Millbrae, CA",
+  let(:trip_data) { Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                                  destination: "717 California Street, San Francisco CA") }
 
   context "#new" do
     it "should accept required parameters: origin/destination/sensor" do
-      lambda { TripData.new(opts = {}) }.should raise_error ArgumentError
+      lambda { Trip.new(opts = {}) }.should raise_error ArgumentError
     end
   end
 
@@ -26,7 +26,7 @@ describe "TripData" do
 
   context "some method" do
     it "should allow for optional parameters" do
-      new_trip_data = TripData.new(origin: "15 Michael Lane, Millbrae, CA",
+      new_trip_data = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                                    destination: "717 California Street, San Francisco CA",
                                    mode: "walking")
 
@@ -49,11 +49,11 @@ end
 
 describe "API Wrapper Module" do
   before(:each) do
-    @transit = TripData.new(origin: "15 Michael Lane, Millbrae, CA",
+    @transit = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                             destination: "717 California Street, San Francisco CA",
                             mode: "transit")
 
-    @driving = TripData.new(origin: "15 Michael Lane, Millbrae, CA",
+    @driving = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                             destination: "717 California Street, San Francisco CA")
   end
 

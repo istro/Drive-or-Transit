@@ -46,5 +46,3 @@ module GoogleAPI
     end
   end
 end
-
-Trip.new(addr1, addr2, mode)

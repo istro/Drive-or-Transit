@@ -1,4 +1,2 @@
-require 'rspec'
-require 'simplecov'
-SimpleCov.start
-require './lib/brain.rb'
+require_relative 'spec_helper'
+require_relative '../lib/brain.rb'

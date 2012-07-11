@@ -1,7 +1,5 @@
-require 'rspec'
-require 'simplecov'
-SimpleCov.start
-require'./user.rb'
+require_relative 'spec_helper'
+require_relative '../lib/user.rb'
 include Transport
 
 describe User do

@@ -1,4 +1,4 @@
-require './database_setup.rb'
+require_relative '../db/database_setup'
 
 module Transport
   class User < ActiveRecord::Base

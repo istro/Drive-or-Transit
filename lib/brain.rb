@@ -1,2 +1,2 @@
-require './address.rb'
-require '.user.rb'
+require_relative 'address'
+require_relative 'user'
