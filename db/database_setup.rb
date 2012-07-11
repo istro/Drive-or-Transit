@@ -19,7 +19,7 @@ unless File.exists?('db/bart_drive.sqlite3')
         t.column :city, :string
         t.column :state, :string
         t.column :zip, :string
-        t.column :created_at, :time
+        t.column :created_at, :datetime, :default => 'CURRENT_TIMESTAMP'
         t.column :user_id, :integer, :null => false
       end
   end
