@@ -29,4 +29,16 @@ describe Address do
     end
   end
 
+  context "#db_to_str" do
+    it "converts the values in a row in the Addresses table from a hash to a string" do
+      @address = Address.new( street: "717 California St",
+                              city: "San Francisco",
+                              state: "CA",
+                              zip: "94108",
+                              created_at: Time.now,
+                              user_id: 1)
+      address_hash = @address.db_to_str
+      address_hash.should eq "717 California St, San Francisco, CA, 94108"
+    end
+  end
 end
