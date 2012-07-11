@@ -2,7 +2,15 @@ require 'rest-client'
 require 'json'
 
 class Trip
-  attr_reader :mode
+  attr_reader :mode, :parsed_json
+
+  def self.shorter_duration(mode_one, mode_two)
+    [mode_one, mode_two].min_by(&:time).mode.to_sym
+  end
+
+  def self.shorter_distance(mode_one, mode_two)
+    [mode_one, mode_two].min_by(&:distance).mode.to_sym
+  end
 
   def initialize(opts = {})
     @origin      = opts.fetch(:origin) { raise ArgumentError, "need origin" }
@@ -14,10 +22,11 @@ class Trip
   end
 
   def response
-    @response = {:time     => @something[:routes][0][:legs][0][:duration][:value],
-                 :distance => @something[:routes][0][:legs][0][:distance][:value],
-                 :from     => @something[:routes][0][:legs][0][:start_address],
-                 :to       => @something[:routes][0][:legs][0][:end_address]
+    @response = {:time     => @parsed_json[:routes][0][:legs][0][:duration][:value],
+                 :distance => @parsed_json[:routes][0][:legs][0][:distance][:value],
+                 :from     => @parsed_json[:routes][0][:legs][0][:start_address],
+                 :to       => @parsed_json[:routes][0][:legs][0][:end_address],
+                 :mode     => @parsed_json[:routes][0][:legs][0][:end_address]
                  # :cost     => ...json_.
                 }
   end
@@ -31,17 +40,10 @@ class Trip
     response[:time]
   end
 
-  def shorter_duration(mode_one, mode_two)
-    [mode_one, mode_two].min_by(&:time).mode.to_sym
-  end
-
-  def shorter_distance(mode_one, mode_two)
-    [mode_one, mode_two].min_by(&:distance).mode.to_sym
-  end
+  private
 
   def json_response
     into_json = RestClient.get "https://maps.googleapis.com/maps/api/directions/json", { :params => @opts }
-    @something = JSON.parse(into_json, :symbolize_names => true)
+    @parsed_json = JSON.parse(into_json, :symbolize_names => true)
   end
-
 end

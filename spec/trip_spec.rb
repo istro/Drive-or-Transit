@@ -15,7 +15,6 @@ describe "Trip" do
     it "should respond with a JSON object" do
       trip.response.should be_instance_of Hash
     end
-
   end
 
   context "some method" do
@@ -24,7 +23,7 @@ describe "Trip" do
                                    destination: "717 California Street, San Francisco CA",
                                    mode: "walking")
 
-      new_trip.response.to_s.should =~ /:travel_mode=>"WALKING"/
+      new_trip.parsed_json.to_s.should =~ /:travel_mode=>"WALKING"/
     end
   end
 
@@ -36,12 +35,12 @@ describe "Trip" do
 
   context "#time" do
     it "should return a value of travel time" do
-      trip.time.should eq 1732
+      trip.time.should eq 1723
     end
   end
 end
 
-describe "API Wrapper Module" do
+describe "comparison class methods" do
   before(:each) do
     @transit = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                             destination: "717 California Street, San Francisco CA",
@@ -52,10 +51,10 @@ describe "API Wrapper Module" do
   end
 
   it "compares duration" do
-    shorter_duration(@transit, @driving).should eq :driving
+    Trip.shorter_duration(@transit, @driving).should eq :driving
   end
 
   it "compares distance" do
-    shorter_distance(@transit, @driving).should eq :transit
+    Trip.shorter_distance(@transit, @driving).should eq :transit
   end
 end
