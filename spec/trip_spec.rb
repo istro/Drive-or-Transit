@@ -2,7 +2,7 @@ require './lib/trip'
 require 'rspec'
 
 describe "Trip" do
-  let(:trip) { trip.new(origin: "15 Michael Lane, Millbrae, CA",
+  let(:trip) { Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                                  destination: "717 California Street, San Francisco CA") }
 
   context "#new" do
