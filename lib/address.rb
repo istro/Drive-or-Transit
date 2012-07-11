@@ -11,5 +11,8 @@ module Transport
       { :street => arr[0], :city => arr[1], :state => state, :zip => zip }
     end
 
+    def db_to_str
+      [self.street, self.city, self.state, self.zip].join(', ')
+    end
   end
 end
