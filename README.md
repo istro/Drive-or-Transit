@@ -1,2 +1,2 @@
-DB_MagicFoolbus
+DB_MagicFoolBus
 ===============
