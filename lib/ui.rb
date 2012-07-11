@@ -14,6 +14,8 @@ class UI
       case command
       when /^b$/ && @destination.nil?
         view_recently_created
+      when  /^a$/ && @destination.nil?
+        add_new_address
       else
         decision
       end
@@ -27,8 +29,8 @@ class UI
   end
 
   def menu_options
-    "origin: #{@origin}"
-    "destination: #{@destination}"
+    "origin: #{ @origin.nil? ? 'Select origin!' : @origin }"
+    "destination: #{@origin.nil? 'None' : 'Select destination!'}"
     puts <<-EOF
   Select from the following options:
   [a] Add an address
@@ -36,17 +38,24 @@ class UI
   [q] Quit
     EOF
   end
-  
+
   def view_recently_created
     prettify_addresses
     match = case command
             when /\d/
               if @origin.nil?
-                @origin = @brain.select_origin(@brain.list_addresses[match-1].to_s)
+                @origin = @brain.list_addresses[match-1].to_s
+                self.run
               else
-                @destination = @brain.select_destination(@brain.addresses[match - 1].to_s)
+                @destination = @brain.list_addresses[match-1].to_s
               end
             end
+  end
+
+  def add_new_address
+    "Put in the new address!\n"
+    @origin.nil? ? @origin = command : @destination = command
+    self.run
   end
 
   def decision
@@ -60,6 +69,6 @@ class UI
     puts "..."
     sleep 0.1
     puts "...."
-    puts "#{@brain.decision.to_s}"
+    puts "#{@brain.decision(@origin, @destination).to_s}"
   end
 end
