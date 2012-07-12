@@ -3,19 +3,38 @@ require './lib/user'
 include Transport
 
 class UI
-  def inititalize 
+  def initialize
     #get the list of current users from db
     #display them, print options to select or create a new one
     #
-    
+    length_of_users = Transport::User.find(:all).length
+    puts "Welcome to Bart or Drive!\n\nPlease select user (0-#{length_of_users}):\n"
+    list_users
+    input = gets.chomp
+    if input.to_i(10).between?(1, length_of_users)
+      user = Transport::User.find(:all)[input.to_i(10)-1]
+      fname = user.first_name
+      lname = user.last_name
+    else
+      raise "Dude...Shereef...c'mon."
+    end
     start(fname, lname)
   end
-  
+
+  def list_users
+    list = "\n"
+    users = Transport::User.find(:all).each_with_index do |user, index|
+      list << "[#{index+1}]  #{user.first_name} #{user.last_name}\n"
+    end
+    puts list
+    puts '------------------------------------------------'
+  end
+
   def start(fname, lname)
     @origin
     @destination
     make_a_brain(fname, lname)
-    puts "Hello #{@user.first_name}!\nWelcome to Bart or Drive!\n\n"
+    puts "\nHello #{@user.first_name}!\n\n"
     @command = ' '
     run
   end
@@ -72,12 +91,14 @@ class UI
     normalized_string = trip_from_google.response[:from]
     new_address = Transport::Address.str_from_google(normalized_string)
     @user.addresses.create(new_address)
+# check not to add duplicates
 
     # recreating @brain to refresh the database reference
     fname = @user.first_name
     lname = @user.last_name
     make_a_brain(fname, lname)
     @origin = @brain.list_addresses[@recents-1] if @origin.nil?
+#wtf omfg?
     @destination = @brain.list_addresses[@recents-1] if @destination.nil?
     puts "\n"
     run
@@ -127,9 +148,10 @@ class UI
     puts "..."
     sleep 0.5
     puts "...."
-    # puts "Driving will take ..."
-    # puts "Transit will take ..."
-    # puts "We advise you to consider #{@brain.decision(@origin, @destination).to_s.upcase}!\n\n"
     puts "#{@brain.decision(@origin, @destination).to_s.upcase} will take #{@brain.time_difference} minutes less time!"
+    save_address(@origin)
+    save_address(@destination)
   end
 end
+
+UI.new
