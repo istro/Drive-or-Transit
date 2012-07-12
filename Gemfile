@@ -4,9 +4,9 @@ gem 'rest-client'
 gem 'json'
 gem 'sqlite3'
 gem 'activerecord'
-gem 'fakeweb'
 
 group :test do
   gem 'rspec'
+  gem 'fakeweb'
   gem 'simplecov'
 end
