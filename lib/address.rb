@@ -1,4 +1,4 @@
-require_relative '../db/database_setup.rb'
+require_relative '../db/database_setup'
 
 module Transport
   class Address < ActiveRecord::Base

@@ -6,7 +6,7 @@ module Transport
   class Brain
     attr_reader :user
     def initialize(user)
-      @user = User.find(:first, :conditions => {:first_name => user.first_name, :last_name => user.last_name}) || User.create(:first_name => user.first_name, :last_name => user.last_name)
+      @user = user
     end
 
     def list_addresses

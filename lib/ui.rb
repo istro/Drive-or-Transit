@@ -6,8 +6,9 @@ class UI
   def initialize(fname, lname)
     @origin
     @destination
-    user_obj = User.new(:first_name => fname, :last_name => lname)
-    @brain = Brain.new(user_obj)
+    @user = User.find(:first, :conditions => {:first_name => fname, :last_name => lname}) ||
+            User.create(:first_name => fname, :last_name => lname)
+    @brain = Brain.new(@user)
     puts "Welcome to Bart or Drive!\n"
     @command = " "
     run
