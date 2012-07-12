@@ -12,6 +12,10 @@ class Trip
     [mode_one, mode_two].min_by(&:distance).mode.to_sym
   end
 
+  def self.duration_difference(mode_one, mode_two)
+    (mode_one.time - mode_two.time).abs/60
+  end
+
   def initialize(opts = {})
     @origin      = opts.fetch(:origin) { raise ArgumentError, "need origin" }
     @destination = opts.fetch(:destination) { raise ArgumentError, "need destination" }
