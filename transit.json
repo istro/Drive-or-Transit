@@ -1,0 +1,477 @@
+{
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 37.79246000000001,
+               "lng" : -122.386660
+            },
+            "southwest" : {
+               "lat" : 37.59912000000001,
+               "lng" : -122.469080
+            }
+         },
+         "copyrights" : "Map data ©2012 Google",
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "1:27pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1342124841
+               },
+               "departure_time" : {
+                  "text" : "12:20pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1342120819
+               },
+               "distance" : {
+                  "text" : "17.8 mi",
+                  "value" : 28568
+               },
+               "duration" : {
+                  "text" : "1 hour 7 mins",
+                  "value" : 3995
+               },
+               "end_address" : "717 California St, San Francisco, CA 94108, USA",
+               "end_location" : {
+                  "lat" : 37.792430,
+                  "lng" : -122.406160
+               },
+               "start_address" : "15 Michael Ln, Millbrae, CA 94030, USA",
+               "start_location" : {
+                  "lat" : 37.601810,
+                  "lng" : -122.403930
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "1.3 mi",
+                        "value" : 2144
+                     },
+                     "duration" : {
+                        "text" : "26 mins",
+                        "value" : 1534
+                     },
+                     "end_location" : {
+                        "lat" : 37.59979000000001,
+                        "lng" : -122.386660
+                     },
+                     "html_instructions" : "Walk to Millbrae",
+                     "polyline" : {
+                        "points" : "ibodFp_bjVcBxAiDaHy@cBo@sAsFcLcBkD`CuBxBmBx@kAV]V_@fAwBLe@BKdAgD~@uAHK|@oAsAoCIMyA}CKSUYtDmFxC{D`EeFdAoAxCoDbAgAs@yASg@AK?I@GUMEGZ_@}@c@"
+                     },
+                     "start_location" : {
+                        "lat" : 37.601810,
+                        "lng" : -122.403930
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "223 ft",
+                              "value" : 68
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 49
+                           },
+                           "end_location" : {
+                              "lat" : 37.602310,
+                              "lng" : -122.404380
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eMichael Ln\u003c/b\u003e toward \u003cb\u003eHelen Dr\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "ibodFp_bjVcBxA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.601810,
+                              "lng" : -122.403930
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.4 mi",
+                              "value" : 582
+                           },
+                           "duration" : {
+                              "text" : "7 mins",
+                              "value" : 394
+                           },
+                           "end_location" : {
+                              "lat" : 37.60541000000001,
+                              "lng" : -122.399050
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eHelen Dr\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "meodFjbbjViDaHy@cBo@sAsFcLcBkD"
+                           },
+                           "start_location" : {
+                              "lat" : 37.602310,
+                              "lng" : -122.404380
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.3 mi",
+                              "value" : 539
+                           },
+                           "duration" : {
+                              "text" : "6 mins",
+                              "value" : 365
+                           },
+                           "end_location" : {
+                              "lat" : 37.60214000000001,
+                              "lng" : -122.394640
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eMagnolia Ave\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "yxodF`aajV`CuBxBmBx@kAV]V_@fAwBLe@BKdAgD~@uAHK|@oA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.60541000000001,
+                              "lng" : -122.399050
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.1 mi",
+                              "value" : 201
+                           },
+                           "duration" : {
+                              "text" : "3 mins",
+                              "value" : 155
+                           },
+                           "end_location" : {
+                              "lat" : 37.603230,
+                              "lng" : -122.392830
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eTaylor Blvd\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "kdodFne`jVsAoCIMyA}CKSUY"
+                           },
+                           "start_location" : {
+                              "lat" : 37.60214000000001,
+                              "lng" : -122.394640
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.4 mi",
+                              "value" : 630
+                           },
+                           "duration" : {
+                              "text" : "8 mins",
+                              "value" : 480
+                           },
+                           "end_location" : {
+                              "lat" : 37.59912000000001,
+                              "lng" : -122.387910
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eEl Camino Real\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "ekodFdz_jVtDmFxC{D`EeFdAoAxCoDbAgA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.603230,
+                              "lng" : -122.392830
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "276 ft",
+                              "value" : 84
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 63
+                           },
+                           "end_location" : {
+                              "lat" : 37.599480,
+                              "lng" : -122.387110
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eLinden Ave\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "oqndFl{~iVs@yASg@AK?I@G"
+                           },
+                           "start_location" : {
+                              "lat" : 37.59912000000001,
+                              "lng" : -122.387910
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "62 ft",
+                              "value" : 19
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 12
+                           },
+                           "end_location" : {
+                              "lat" : 37.599620,
+                              "lng" : -122.3870
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eMillbrae Intermodal Station Drop-Off\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "wsndFlv~iVUMEG"
+                           },
+                           "start_location" : {
+                              "lat" : 37.599480,
+                              "lng" : -122.387110
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "69 ft",
+                              "value" : 21
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 16
+                           },
+                           "end_location" : {
+                              "lat" : 37.59979000000001,
+                              "lng" : -122.386660
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e to stay on \u003cb\u003eMillbrae Intermodal Station Drop-Off\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "stndFvu~iVZ_@}@c@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.599620,
+                              "lng" : -122.3870
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "16.0 mi",
+                        "value" : 25675
+                     },
+                     "duration" : {
+                        "text" : "30 mins",
+                        "value" : 1800
+                     },
+                     "end_location" : {
+                        "lat" : 37.78926000000001,
+                        "lng" : -122.401410
+                     },
+                     "html_instructions" : "Metro rail towards Richmond",
+                     "polyline" : {
+                        "points" : "uundFrs~iVglFrvDcdDnnD}~BdiCgeCxPcbBmfCkcAgrAywBs`BaoArFmyAad@ca@cj@uYaa@"
+                     },
+                     "start_location" : {
+                        "lat" : 37.59979000000001,
+                        "lng" : -122.386660
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 37.7892560,
+                              "lng" : -122.4014070
+                           },
+                           "name" : "Montgomery St."
+                        },
+                        "arrival_time" : {
+                           "text" : "1:16pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1342124160
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 37.5997870,
+                              "lng" : -122.386660
+                           },
+                           "name" : "Millbrae"
+                        },
+                        "departure_time" : {
+                           "text" : "12:46pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1342122360
+                        },
+                        "headsign" : "Richmond",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "Bay Area Rapid Transit",
+                                 "url" : "http://www.bart.gov/"
+                              }
+                           ],
+                           "color" : "#ff0000",
+                           "name" : "Richmond - Daly City/Millbrae",
+                           "url" : "http://www.bart.gov/schedules/bylineresults.aspx?route=7",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw/6/metro.png",
+                              "local_icon" : "//maps.gstatic.com/mapfiles/transit/iw/6/us-ca-bart.png",
+                              "name" : "Metro rail",
+                              "type" : "SUBWAY"
+                           }
+                        },
+                        "num_stops" : 11
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 749
+                     },
+                     "duration" : {
+                        "text" : "11 mins",
+                        "value" : 661
+                     },
+                     "end_location" : {
+                        "lat" : 37.792430,
+                        "lng" : -122.406160
+                     },
+                     "html_instructions" : "Walk to 717 California St, San Francisco, CA 94108, USA",
+                     "polyline" : {
+                        "points" : "{useFxoajVLj@?JAPCHCF?N?RuDRcDr@D`AZxDFfAD|@?JHjAJvAFhAwD\\w@JeCXA@Dj@"
+                     },
+                     "start_location" : {
+                        "lat" : 37.78926000000001,
+                        "lng" : -122.401410
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "128 ft",
+                              "value" : 39
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 31
+                           },
+                           "end_location" : {
+                              "lat" : 37.78924000000001,
+                              "lng" : -122.402050
+                           },
+                           "html_instructions" : "Head \u003cb\u003ewest\u003c/b\u003e on \u003cb\u003eMarket St\u003c/b\u003e toward \u003cb\u003eMontgomery St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "{useFxoajVLj@?JAPCHCF?N?R"
+                           },
+                           "start_location" : {
+                              "lat" : 37.78926000000001,
+                              "lng" : -122.401410
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.1 mi",
+                              "value" : 196
+                           },
+                           "duration" : {
+                              "text" : "2 mins",
+                              "value" : 138
+                           },
+                           "end_location" : {
+                              "lat" : 37.790970,
+                              "lng" : -122.402410
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eMontgomery St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "wuseFxsajVuDRcDr@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.78924000000001,
+                              "lng" : -122.402050
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 283
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 269
+                           },
+                           "end_location" : {
+                              "lat" : 37.79058000000001,
+                              "lng" : -122.405590
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eBush St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "q`teF`vajVD`AZxDFfAD|@?JHjAJvAFhA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.790970,
+                              "lng" : -122.402410
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.1 mi",
+                              "value" : 211
+                           },
+                           "duration" : {
+                              "text" : "3 mins",
+                              "value" : 199
+                           },
+                           "end_location" : {
+                              "lat" : 37.79246000000001,
+                              "lng" : -122.405940
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eGrant Ave\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "c~seF|ibjVwD\\w@JeCXA@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.79058000000001,
+                              "lng" : -122.405590
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "66 ft",
+                              "value" : 20
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 24
+                           },
+                           "end_location" : {
+                              "lat" : 37.792430,
+                              "lng" : -122.406160
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eCalifornia St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "{iteFblbjVDj@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.79246000000001,
+                              "lng" : -122.405940
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "ibodFp_bjVcBxAiDaHiBwDwIoQzFcFpAiBV_@fAwBPq@dAgD~@uAfA{A}A}CeBqDUYtDmFzIaL~E_GbAgAs@yAUs@@Q[UZ_@}@c@glFrvDcdDnnD}~BdiCgeCxPcbBmfCkcAgrAywBs`BaoArFmyAad@ca@cj@uYaa@Lj@A\\GP?b@uDRcDr@`@zFV|ER`DoFh@gCZDj@"
+         },
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

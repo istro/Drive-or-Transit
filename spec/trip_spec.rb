@@ -2,8 +2,11 @@ require_relative 'spec_helper'
 require_relative '../lib/trip.rb'
 
 describe "Trip" do
-  let(:trip) { Trip.new(origin: "15 Michael Lane, Millbrae, CA",
-                        destination: "717 California Street, San Francisco CA") }
+  let(:trip) {
+    RestClient.stub!(:get).and_return(File.read('./driving.json'))
+    Trip.new(origin: "15 Michael Lane, Millbrae, CA",
+             destination: "717 California Street, San Francisco CA")
+  }
 
   context "#new" do
     it "should accept required parameters: origin/destination/sensor" do
@@ -19,6 +22,7 @@ describe "Trip" do
 
   context "some method" do
     it "should allow for optional parameters" do
+      RestClient.stub!(:get).and_return(File.read('./walking.json'))
       new_trip = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                           destination: "717 California Street, San Francisco CA",
                           mode: "walking")
@@ -42,12 +46,14 @@ end
 
 describe "comparison class methods" do
   before(:each) do
+    RestClient.stub!(:get).and_return(File.read('./transit.json'), File.read('./driving.json'))
+
     @transit = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
                         destination: "717 California Street, San Francisco CA",
                         mode: "transit")
 
     @driving = Trip.new(origin: "15 Michael Lane, Millbrae, CA",
-                            destination: "717 California Street, San Francisco CA")
+                        destination: "717 California Street, San Francisco CA")
   end
 
   it "compares duration" do
@@ -56,5 +62,10 @@ describe "comparison class methods" do
 
   it "compares distance" do
     Trip.shorter_distance(@transit, @driving).should eq :transit
+  end
+
+  it "provides the time difference" do
+    Trip.duration_difference(@transit, @driving).should eq 37
+    puts Trip.duration_difference(@transit, @driving).class
   end
 end
