@@ -1,8 +1,8 @@
 require './lib/brain'
 
 class UI
-  def initialize
-    @brain = Brain.new
+  def initialize(user)
+    @brain = Brain.new(user)
     puts "Welcome to Jurassic Park"
     run
   end
