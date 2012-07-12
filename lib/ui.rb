@@ -8,7 +8,7 @@ class UI
     #display them, print options to select or create a new one
     #
     length_of_users = Transport::User.find(:all).length
-    puts "Welcome to Bart or Drive!\n\nPlease select user (0-#{length_of_users}):\n"
+    puts "Welcome to Bart or Drive!\n\nPlease select user (1-#{length_of_users}):\n"
     list_users
     input = gets.chomp
     if input.to_i(10).between?(1, length_of_users)
@@ -54,7 +54,7 @@ class UI
        run if !@origin.nil?
      else
        puts "\nOrigin: #{@origin}"
-       puts "Now, select destination!"
+       puts "\nNow, select destination!"
        print_options
        @destination = select_address
        if !@destination.nil? && @destination != @origin
@@ -85,23 +85,25 @@ class UI
   end
 
   def add_new_address
-    puts "Enter the new address:"
+    puts "\nEnter the new address:"
     raw_address = gets.chomp
-    trip_from_google = Trip.new(:origin => raw_address, :destination => "717 California St, San Francisco")
-    normalized_string = trip_from_google.response[:from]
-    new_address = Transport::Address.str_from_google(normalized_string)
-    @user.addresses.create(new_address)
-# check not to add duplicates
-
-    # recreating @brain to refresh the database reference
-    fname = @user.first_name
-    lname = @user.last_name
-    make_a_brain(fname, lname)
-    @origin = @brain.list_addresses[@recents-1] if @origin.nil?
-#wtf omfg?
-    @destination = @brain.list_addresses[@recents-1] if @destination.nil?
-    puts "\n"
-    run
+#     trip_from_google = Trip.new(:origin => raw_address, :destination => "717 California St, San Francisco")
+#     normalized_string = trip_from_google.response[:from]
+#     new_address = Transport::Address.str_from_google(normalized_string)
+#     @user.addresses.create(new_address)
+# # check not to add duplicates
+#
+#     # recreating @brain to refresh the database reference
+#     fname = @user.first_name
+#     lname = @user.last_name
+#     make_a_brain(fname, lname)
+    if @origin.nil?
+      puts "\n"
+      raw_address
+    else
+      puts "\n"
+      raw_address
+    end
   end
 
 
@@ -113,8 +115,10 @@ class UI
       @destination = nil
       @origin = nil
       run
-    else
+    elsif response == "no" || response == "n"
       puts 'Bye!'
+    else
+      puts "I don't know that command... Bye!"
     end
   end
 
@@ -148,9 +152,8 @@ class UI
     puts "..."
     sleep 0.5
     puts "...."
-    puts "#{@brain.decision(@origin, @destination).to_s.upcase} will take #{@brain.time_difference} minutes less time!"
-    save_address(@origin)
-    save_address(@destination)
+    puts "#{@brain.decision(@origin, @destination).to_s.upcase} will take #{@brain.time_difference} minutes less time!\n\n"
+    @brain.save_to_db(@user)
   end
 end
 
