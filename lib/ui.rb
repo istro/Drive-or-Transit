@@ -4,21 +4,34 @@ include Transport
 
 class UI
   def initialize
-    #get the list of current users from db
-    #display them, print options to select or create a new one
-    #
     length_of_users = Transport::User.find(:all).length
-    puts "Welcome to Bart or Drive!\n\nPlease select user (1-#{length_of_users}):\n"
-    list_users
-    input = gets.chomp
-    if input.to_i(10).between?(1, length_of_users)
-      user = Transport::User.find(:all)[input.to_i(10)-1]
-      fname = user.first_name
-      lname = user.last_name
+    puts "Welcome to Bart or Drive!\n\n"
+    if length_of_users == 0
+      add_user
+      start(@user.first_name, @user.last_name)
+
+      puts @origin.class
     else
-      raise "Dude...Shereef...c'mon."
+      puts "Please select user (1-#{length_of_users}):\n"
+      list_users
+      input = gets.chomp
+      if input.to_i(10).between?(1, length_of_users)
+        user = Transport::User.find(:all)[input.to_i(10)-1]
+        fname = user.first_name
+        lname = user.last_name
+        start(fname, lname)
+      else
+        raise "Dude...Shereef...c'mon."
+      end
     end
-    start(fname, lname)
+  end
+
+  def add_user
+    puts "Please enter your first and last name."
+    input = gets.chomp
+    arr = input.split
+    @user = Transport::User.new(:first_name => arr[0], :last_name => arr[1])
+    @user.save
   end
 
   def list_users
@@ -113,14 +126,24 @@ class UI
   end
 
   def print_options
-    puts <<-EOF
+    if @recents > 0
+      puts <<-EOF
 
-    Here are your options:
+      Here are your options:
 
-    [1-#{@recents}] Select an address from the list below
-    [a] Add a new address
-    [q] Quit
-    EOF
+      [1-#{@recents}] Select an address from the list below
+      [a] Add a new address
+      [q] Quit
+      EOF
+    else
+      puts <<-EOF
+
+      Here are your options:
+
+      [a] Add a new address
+      [q] Quit
+      EOF
+    end
   end
 
 
@@ -133,6 +156,7 @@ class UI
   end
 
   def decision
+    decision = @brain.decision(@origin, @destination).to_s.upcase
     puts "\nLet me think about it..."
     sleep 0.5
     puts "."
@@ -142,7 +166,7 @@ class UI
     puts "..."
     sleep 0.5
     puts "...."
-    puts "#{@brain.decision(@origin, @destination).to_s.upcase} will take #{@brain.time_difference} minutes less time!\n\n"
+    puts "#{decision} will take #{@brain.time_difference} minutes less time than #{decision == "TRANSIT" ? "NO" : "TRANSIT"}!\n\n"
     @brain.save_to_db(@user)
   end
 end
