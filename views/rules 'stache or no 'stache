@@ -1,0 +1,11 @@
+rules 'stache or no 'stache
+
+1. pick mustache or no mustache
+ a. if chosen, you have to drink
+2. select offense 
+	a. if correct, you can give away the drink.
+	b. otherwise, you have to take a drink.
+3. if you guess a female, then everyone else has to finish their drink.
+	a. otherwise, you have to finish your drink.
+4. if no one guesses a woman and a woman appears, then everyone drinks.
+5. when everyone guesses correctly (stache or no stache) then everyone drinks.

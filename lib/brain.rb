@@ -35,7 +35,3 @@ module Transport
     end
   end
 end
-
-
-# 345 Laguna St, san francisco
-# 32 A st, san rafael

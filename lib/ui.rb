@@ -87,16 +87,6 @@ class UI
   def add_new_address
     puts "\nEnter the new address:"
     raw_address = gets.chomp
-#     trip_from_google = Trip.new(:origin => raw_address, :destination => "717 California St, San Francisco")
-#     normalized_string = trip_from_google.response[:from]
-#     new_address = Transport::Address.str_from_google(normalized_string)
-#     @user.addresses.create(new_address)
-# # check not to add duplicates
-#
-#     # recreating @brain to refresh the database reference
-#     fname = @user.first_name
-#     lname = @user.last_name
-#     make_a_brain(fname, lname)
     if @origin.nil?
       puts "\n"
       raw_address
@@ -156,5 +146,3 @@ class UI
     @brain.save_to_db(@user)
   end
 end
-
-UI.new
