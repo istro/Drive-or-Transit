@@ -7,8 +7,8 @@ It supports multiple users, and stores recent addresses for each user. When trip
 
 Participants:
 
--Phil Aquilina
--Sherief Gharraph
--Matt Nguyen
--David McDonald
--Ivan Stroganov
+- Phil Aquilina
+- Sherief Gharraph
+- Matt Nguyen
+- David McDonald
+- Ivan Stroganov
